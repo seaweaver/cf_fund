@@ -1,0 +1,29 @@
+# Local data exports
+data/
+output/
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.xlsm
+
+# Secrets and local config
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+*.sqlite
+*.db
+
+# Python/cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Editor/system
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+
