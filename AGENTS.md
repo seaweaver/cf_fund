@@ -61,6 +61,8 @@
 - 先运行 `sql/00_fund_scope_candidates.sql` 确认基金代码。
 - 再运行 `sql/10_benchmark_885001_check.sql` 确认 `885001` 本地代码。
 - 如果本地 `885001` 不是 `885001.WI`，同步修改 `sql/02_nav_excess_daily.sql` 和 `sql/03_excess_performance_summary.sql`。
+- 正式复跑时优先使用 `sql/11_verified_fund_scope.sql` 的精确基金池，避免模糊名称匹配误纳入。
+- 若本地 Wind 库缺少第三方行业或风格系数表，使用 `sql/12_industry_exposure_wind_from_holdings.sql` 与 `sql/13_style_proxy_from_holdings.sql` 替代。
 - 后续按文件编号顺序导出结果。
 - 查询结果建议导出为同名 CSV/XLSX 后反馈给 Codex 分析。
 
@@ -86,4 +88,3 @@
 - `git status -sb`
 - 文件清单
 - 关键文档是否可读
-

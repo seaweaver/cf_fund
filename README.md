@@ -22,6 +22,9 @@
 | `sql/06_industry_exposure_third_party.sql` | Wind/第三方行业配置 |
 | `sql/07_style_coefficient.sql` | 基金风格系数 |
 | `sql/08_stock_portfolio_holdings.sql` | 基金持股明细 |
+| `sql/11_verified_fund_scope.sql` | 已校验基金池，避免名称模糊匹配误纳入 |
+| `sql/12_industry_exposure_wind_from_holdings.sql` | 缺失第三方行业表时，用持仓重建 Wind 行业暴露 |
+| `sql/13_style_proxy_from_holdings.sql` | 缺失风格系数表时，用持仓市值/估值重建风格代理 |
 
 ## 🔢 建议执行顺序
 
@@ -32,9 +35,14 @@
 5. 依次运行 `sql/01` 到 `sql/09`。
 6. 将结果导出为同名 CSV/XLSX。
 
+## ⚠️ 当前修正
+
+- `sql/00` 的名称模糊匹配可能误纳入 `006682.OF 景顺长城中证500指数增强A`。
+- 后续正式分析优先使用 `sql/11_verified_fund_scope.sql` 中的精确基金池。
+- 如果本地 Wind 库缺少 `CMFundThirdPartyIndPortfolio` 或 `CFundStyleCoefficient`，改跑 `sql/12` 和 `sql/13`。
+
 ## ⚠️ 数据原则
 
 - 不提交 Wind 连接信息、账号、Token。
 - 不默认提交查询结果原始数据。
 - `data/` 和 `output/` 用于本地分析产物。
-
