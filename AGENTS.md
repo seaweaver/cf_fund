@@ -88,3 +88,7 @@
 - `git status -sb`
 - 文件清单
 - 关键文档是否可读
+
+## 从 .learnings 提升的规则
+
+- 解析 Wind 导出 `result/*.xlsx` 时，不假设工作表名为 `With`，优先读取首个非 `SQL` sheet；生成 Markdown 表不要依赖 `tabulate`，本地格式化即可；数值转换只对明确数值列用 `errors='coerce'`。
